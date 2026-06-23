@@ -1,0 +1,622 @@
+# 03_EXPERIENCE_LANGUAGE_SYSTEM.md
+
+**Version:** 1.0
+
+**Status:** Final
+
+---
+
+# Purpose
+
+This document defines the behaviour, interaction, motion and emotional experience of the Triads Future website.
+
+The Design Language defines how the website looks.
+
+The Experience Language defines how the website feels.
+
+Every interaction should feel intentional.
+
+Visitors should never consciously notice the animations.
+
+They should only remember how smooth, calm and effortless the experience felt.
+
+---
+
+# Experience Philosophy
+
+Triads Future should feel like a premium digital product.
+
+Not an animated website.
+
+Not a template.
+
+Not an AI-generated landing page.
+
+Every interaction should communicate
+
+- Trust
+- Confidence
+- Professionalism
+- Precision
+- Calmness
+
+Never
+
+- Excitement
+- Chaos
+- Distraction
+- Gimmicks
+- Entertainment
+
+---
+
+# Core Experience Principles
+
+## Principle 01
+
+Motion exists only to improve understanding.
+
+Never animate for decoration.
+
+---
+
+## Principle 02
+
+Every animation follows one physical language.
+
+Nothing should behave differently without reason.
+
+---
+
+## Principle 03
+
+Visitors should always feel in control.
+
+The website never surprises them.
+
+---
+
+## Principle 04
+
+Consistency creates familiarity.
+
+Every page should behave exactly the same.
+
+---
+
+## Principle 05
+
+The experience should disappear behind the content.
+
+Visitors remember the business.
+
+Not the effects.
+
+---
+
+# Motion Philosophy
+
+Everything behaves as though it has gentle physical weight.
+
+Nothing teleports.
+
+Nothing explodes.
+
+Nothing bounces.
+
+Nothing shakes.
+
+Nothing spins.
+
+Everything moves naturally.
+
+---
+
+# Motion Vocabulary
+
+Only these motion patterns are allowed.
+
+## Rise
+
+Elements begin approximately 8px below their final position.
+
+They gently move upward while becoming visible.
+
+Used for
+
+- Text
+- Buttons
+- Cards
+- Forms
+- Sections
+
+---
+
+## Fade
+
+Opacity increases from 0 to 100%.
+
+Fade should always accompany another movement.
+
+Never use fade alone.
+
+---
+
+## Underline
+
+Interactive text draws a thin underline from left to right.
+
+Used for
+
+- Navigation
+- Links
+- Text CTAs
+
+This becomes the signature interaction language.
+
+---
+
+## Image Settle
+
+Images begin at approximately 102% scale.
+
+They gently settle to 100%.
+
+Used only for important photography.
+
+Never use zoom animations.
+
+---
+
+# Loading Experience
+
+Loading should feel invisible.
+
+Sequence
+
+Warm background
+
+↓
+
+150ms pause
+
+↓
+
+Content rises
+
+↓
+
+Content fades
+
+↓
+
+Ready
+
+Never use
+
+- Spinners
+- Progress bars
+- Logo rotations
+- Skeleton screens for static pages
+- Percentage loaders
+
+---
+
+# First Impression
+
+The visitor should immediately understand
+
+Who we are.
+
+What we do.
+
+Why they should trust us.
+
+What to do next.
+
+Nothing should interrupt reading.
+
+---
+
+# Hero Experience
+
+The Hero appears once.
+
+No replay.
+
+No looping.
+
+Headline appears fully.
+
+Never
+
+- Typewriter animation
+- Letter-by-letter animation
+- Rotating headlines
+- Auto-changing text
+
+The Hero should feel calm.
+
+---
+
+# Scroll Behaviour
+
+Scrolling should feel continuous.
+
+The page should feel like one long conversation.
+
+Never like separate screens.
+
+---
+
+# Section Entrance
+
+Every section enters once.
+
+Sequence
+
+Label
+
+↓
+
+Heading
+
+↓
+
+Description
+
+↓
+
+Visual
+
+↓
+
+CTA
+
+Small stagger only.
+
+Never dramatic.
+
+---
+
+# Scroll Replay
+
+Entrance animations must never replay after the first appearance.
+
+The visitor should not repeatedly watch the same animation.
+
+---
+
+# Hover Behaviour
+
+Hover communicates interaction.
+
+Not decoration.
+
+---
+
+## Links
+
+Underline draws left to right.
+
+No colour explosion.
+
+No scaling.
+
+---
+
+## Buttons
+
+Subtle colour transition.
+
+No pulse.
+
+No bounce.
+
+No glow.
+
+---
+
+## Images
+
+Slight darkening.
+
+Caption fades in.
+
+Nothing else.
+
+Never
+
+- Rotate
+- Tilt
+- Overscale
+- Glow
+
+---
+
+# Click Feedback
+
+Every click should receive acknowledgement.
+
+Feedback should be immediate.
+
+Never exaggerated.
+
+---
+
+# Navigation Experience
+
+Navigation always feels stable.
+
+Desktop
+
+Top Navigation
+
+Tablet
+
+Left Navigation Rail
+
+Mobile
+
+Bottom Navigation
+
+Navigation should never move unexpectedly.
+
+---
+
+# Desktop Experience
+
+Desktop visitors explore.
+
+Motion may be slightly slower.
+
+Hover interactions exist.
+
+Editorial pacing.
+
+Large storytelling.
+
+---
+
+# Tablet Experience
+
+Tablet visitors browse.
+
+Feels like a premium tablet application.
+
+Navigation Rail stays visible.
+
+Touch-first interactions.
+
+No hover dependency.
+
+---
+
+# Mobile Experience
+
+Mobile visitors complete tasks.
+
+Feels like a native application inside the browser.
+
+Bottom Navigation always accessible.
+
+Thumb-first interaction.
+
+Shorter motion.
+
+Immediate feedback.
+
+---
+
+# Page Transition
+
+Old page
+
+↓
+
+Fade
+
+↓
+
+New page rises
+
+↓
+
+Ready
+
+Visitors should feel they are travelling through one product.
+
+Not opening separate pages.
+
+---
+
+# Forms
+
+Forms should reduce anxiety.
+
+Focus
+
+↓
+
+Border strengthens
+
+↓
+
+Input active
+
+Errors explain.
+
+Never accuse.
+
+Success feels reassuring.
+
+---
+
+# Strategy Call Form
+
+Required Fields
+
+- Name
+- Phone Number
+
+Optional
+
+- Business Name
+- Email
+- Message
+
+Reduce typing.
+
+Reduce friction.
+
+Increase conversations.
+
+---
+
+# Interaction Timing
+
+Micro Interaction
+
+100–150ms
+
+Hover
+
+150–200ms
+
+Button
+
+150ms
+
+Section Entrance
+
+400–600ms
+
+Image Settle
+
+500ms
+
+Page Transition
+
+300–450ms
+
+Consistency is more important than speed.
+
+---
+
+# Reduced Motion
+
+Respect the user's operating system preference.
+
+When enabled
+
+Remove
+
+- Rise
+- Fade
+- Image Settle
+- Page Transitions
+
+Content should appear instantly.
+
+Accessibility always wins.
+
+---
+
+# Device Behaviour
+
+Desktop
+
+Editorial experience.
+
+Mouse-first.
+
+Large layouts.
+
+---
+
+Tablet
+
+Application experience.
+
+Navigation Rail.
+
+Touch-first.
+
+---
+
+Mobile
+
+Application experience.
+
+Bottom Navigation.
+
+Thumb-first.
+
+Fast.
+
+Comfortable.
+
+---
+
+# Things Never Allowed
+
+Never use
+
+- Typewriter text
+- Floating blobs
+- Particles
+- Heavy parallax
+- Infinite animations
+- Rotating icons
+- Auto-playing sliders
+- Marquee text
+- Bounce effects
+- Confetti
+- Heavy scaling
+- Glassmorphism
+- Animated gradients
+- Decorative motion
+
+Motion should never become entertainment.
+
+---
+
+# Experience Acceptance Checklist
+
+Before approving any interaction ask
+
+✓ Does this animation improve understanding?
+
+✓ Is the interaction calm?
+
+✓ Is the timing consistent?
+
+✓ Does Desktop feel editorial?
+
+✓ Does Tablet feel like a premium tablet application?
+
+✓ Does Mobile feel like a native application?
+
+✓ Would the website still feel premium without this animation?
+
+If any answer is "No",
+
+remove or redesign the interaction.
+
+---
+
+# Final Principle
+
+Visitors should never leave saying
+
+"That website had amazing animations."
+
+They should leave saying
+
+"That company felt professional."
+
+The experience should disappear behind the business.
+
+---
+
+**End of Document**

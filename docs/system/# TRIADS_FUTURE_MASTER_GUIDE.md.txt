@@ -1,0 +1,291 @@
+# TRIADS_FUTURE_MASTER_GUIDE.md
+
+Status: Final Master Document
+
+Purpose:
+
+Merge every previous document into one single source of truth.
+
+This document is the only document that Antigravity should read before starting development.
+
+It contains the complete Triads Future specification.
+
+---
+
+# Documents Included
+
+01_BRAND_SYSTEM.md
+
+↓
+
+02_DESIGN_LANGUAGE_SYSTEM.md
+
+↓
+
+03_EXPERIENCE_LANGUAGE_SYSTEM.md
+
+↓
+
+04_COMPONENT_SYSTEM.md
+
+↓
+
+05_CMS_SYSTEM.md
+
+↓
+
+06_DEVELOPMENT_SYSTEM.md
+
+↓
+
+07_AI_DEVELOPMENT_SYSTEM.md
+
+↓
+
+08_PROJECT_ARCHITECTURE_SYSTEM.md
+
+↓
+
+09_DEPLOYMENT_AND_QUALITY_SYSTEM.md
+
+↓
+
+10_FINAL_PROJECT_SPECIFICATION.md
+
+↓
+
+11_ANTIGRAVITY_EXECUTION_GUIDE.md
+
+---
+
+# Master Guide Purpose
+
+The purpose of this document is to become the single authoritative reference for the entire Triads Future project.
+
+No AI tool should read individual documents once this guide is completed.
+
+Instead, this guide combines every rule, decision and specification into one continuous engineering document.
+
+---
+
+# Document Hierarchy
+
+The hierarchy is fixed.
+
+1. Brand System
+
+Defines who Triads Future is.
+
+---
+
+2. Design Language
+
+Defines how the website looks.
+
+---
+
+3. Experience Language
+
+Defines how the website behaves.
+
+---
+
+4. Component System
+
+Defines every reusable interface component.
+
+---
+
+5. CMS System
+
+Defines how content is managed.
+
+---
+
+6. Development System
+
+Defines engineering standards.
+
+---
+
+7. AI Development System
+
+Defines how AI participates in development.
+
+---
+
+8. Project Architecture
+
+Defines project structure.
+
+---
+
+9. Deployment & Quality
+
+Defines testing and deployment.
+
+---
+
+10. Final Project Specification
+
+Defines what must be built.
+
+---
+
+11. Antigravity Execution Guide
+
+Defines exactly how development is executed.
+
+---
+
+# Master Rules
+
+Documentation always wins.
+
+Never guess.
+
+Never invent.
+
+Never simplify.
+
+Never redesign without updating documentation.
+
+Every developer.
+
+Every AI.
+
+Every contributor.
+
+Must follow this guide exactly.
+
+---
+
+# Project Goal
+
+Create a premium digital experience for Triads Future.
+
+The product should
+
+- Feel handcrafted.
+- Feel modern.
+- Feel calm.
+- Feel trustworthy.
+- Feel premium.
+- Never feel AI-generated.
+
+---
+
+# Technology Stack
+
+Frontend
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+
+Backend
+
+- Next.js Route Handlers
+- Server Actions
+
+Database
+
+- PostgreSQL
+- Prisma
+
+Authentication
+
+- Better Auth
+
+Storage
+
+- Cloudinary
+
+Deployment
+
+- Vercel
+
+---
+
+# Device Philosophy
+
+Desktop
+
+Editorial Website
+
+Tablet
+
+Tablet Application
+
+Mobile
+
+Mobile Application inside the browser
+
+Each experience is designed independently.
+
+---
+
+# Development Philosophy
+
+Build once.
+
+Maintain for years.
+
+Everything reusable.
+
+Everything documented.
+
+Everything CMS driven.
+
+Everything beginner friendly.
+
+Everything commented.
+
+---
+
+# AI Workflow
+
+Read Documentation
+
+↓
+
+Understand
+
+↓
+
+Generate
+
+↓
+
+Review
+
+↓
+
+Implement
+
+↓
+
+Test
+
+↓
+
+Deploy
+
+Never skip documentation.
+
+---
+
+# Final Principle
+
+This document is the constitution of the Triads Future project.
+
+If any implementation differs from this guide,
+
+the implementation is wrong.
+
+The documentation is the source of truth.
+
+---
+
+**End of Master Guide Index**

@@ -1,0 +1,674 @@
+# 07_AI_DEVELOPMENT_SYSTEM.md
+
+**Version:** 1.0
+
+**Status:** Final
+
+---
+
+# Purpose
+
+This document defines how every AI tool must participate in the development of the Triads Future website.
+
+AI is a development assistant.
+
+AI is not the decision maker.
+
+All AI-generated output must follow the Brand System, Design Language, Experience Language, Component System, CMS System and Development System.
+
+Documentation always wins.
+
+---
+
+# AI Philosophy
+
+AI should accelerate development.
+
+Never control development.
+
+Every generated line of code should be
+
+- Readable
+- Maintainable
+- Modular
+- Commented
+- Consistent
+
+Never generate code simply because it works.
+
+Generate code because it follows the project architecture.
+
+---
+
+# AI Hierarchy
+
+Project Documentation
+
+↓
+
+Human Decisions
+
+↓
+
+AI Generation
+
+↓
+
+Human Review
+
+↓
+
+Implementation
+
+↓
+
+Testing
+
+AI never replaces review.
+
+---
+
+# Approved AI Tools
+
+Primary
+
+- Antigravity
+
+Supporting
+
+- Stitch
+- 21st.dev
+- Claude
+- ChatGPT
+- Cursor
+- GitHub Copilot
+
+Every tool has one responsibility.
+
+Never allow one tool to design the entire project.
+
+---
+
+# Antigravity
+
+## Purpose
+
+Primary Development Environment.
+
+Responsible for
+
+- Project generation
+- Feature implementation
+- Refactoring
+- Code organization
+- Development workflow
+
+---
+
+## Before Writing Code
+
+Antigravity must
+
+Read every project document.
+
+Understand the architecture.
+
+Understand the CMS.
+
+Understand the three device experiences.
+
+Understand the design language.
+
+Only then begin implementation.
+
+Never start coding using assumptions.
+
+---
+
+## Antigravity Rules
+
+Never
+
+Change layouts.
+
+Rename project folders.
+
+Replace libraries.
+
+Ignore documentation.
+
+Create unnecessary files.
+
+Simplify architecture.
+
+Never invent features.
+
+If something is missing,
+
+STOP.
+
+Ask.
+
+---
+
+# Stitch
+
+## Purpose
+
+Generate layout ideas.
+
+Generate section structures.
+
+Generate visual composition.
+
+Explore interaction concepts.
+
+---
+
+## Stitch Rules
+
+Never use Stitch output directly.
+
+Every generated layout must be reviewed.
+
+The layout must be adapted to
+
+Brand System
+
+↓
+
+Design Language
+
+↓
+
+Experience Language
+
+↓
+
+Component System
+
+Only then can development begin.
+
+---
+
+# 21st.dev
+
+## Purpose
+
+Reusable React Components.
+
+Examples
+
+Accordion
+
+Modal
+
+Drawer
+
+Tabs
+
+Command Menu
+
+Date Picker
+
+Carousel
+
+---
+
+## Rules
+
+Never copy blindly.
+
+Review
+
+Accessibility
+
+Performance
+
+Styling
+
+Naming
+
+Responsiveness
+
+CMS Integration
+
+Every imported component should look like it belongs to Triads Future.
+
+---
+
+# UI Pro
+
+## Purpose
+
+Admin Panel
+
+Dashboard
+
+Tables
+
+Forms
+
+Settings
+
+Analytics
+
+Never use UI Pro for public pages.
+
+---
+
+# Claude
+
+## Purpose
+
+Architecture
+
+Documentation
+
+Planning
+
+Refactoring Suggestions
+
+Problem Solving
+
+Code Review
+
+Never allow Claude to redesign the visual identity without documentation updates.
+
+---
+
+# ChatGPT
+
+## Purpose
+
+Documentation
+
+Code Review
+
+Developer Support
+
+Architecture Review
+
+Prompt Engineering
+
+Bug Analysis
+
+Planning
+
+Knowledge Base
+
+---
+
+# Cursor
+
+## Purpose
+
+Fast coding.
+
+Autocomplete.
+
+Small feature implementation.
+
+Refactoring.
+
+---
+
+# GitHub Copilot
+
+## Purpose
+
+Developer productivity.
+
+Autocomplete.
+
+Small utility generation.
+
+Never generate entire architecture with Copilot.
+
+---
+
+# AI Workflow
+
+Requirement
+
+↓
+
+Documentation
+
+↓
+
+Architecture
+
+↓
+
+Wireframe
+
+↓
+
+Design Review
+
+↓
+
+Component Design
+
+↓
+
+Development
+
+↓
+
+Testing
+
+↓
+
+Deployment
+
+Never skip steps.
+
+---
+
+# Code Generation Rules
+
+Every AI-generated file must
+
+Follow naming conventions.
+
+Contain comments.
+
+Be modular.
+
+Support TypeScript.
+
+Be responsive.
+
+Support CMS.
+
+Support accessibility.
+
+Never generate temporary code.
+
+---
+
+# Documentation First
+
+Before writing
+
+Hero
+
+Read Hero documentation.
+
+Before writing
+
+Navigation
+
+Read Navigation documentation.
+
+Every feature should be generated using the relevant documentation.
+
+---
+
+# AI Code Quality
+
+Generated code should be
+
+Simple.
+
+Predictable.
+
+Readable.
+
+Scalable.
+
+Maintainable.
+
+Beginner Friendly.
+
+---
+
+# Comment Rules
+
+Every generated file begins with
+
+Purpose
+
+Author
+
+Last Updated
+
+Dependencies
+
+Description
+
+Every exported function includes comments.
+
+---
+
+# Refactoring Rules
+
+Never refactor
+
+Folder Structure
+
+Naming
+
+CMS
+
+Animations
+
+Design
+
+unless requested.
+
+---
+
+# AI Limitations
+
+AI must never
+
+Invent business information.
+
+Invent testimonials.
+
+Invent statistics.
+
+Invent projects.
+
+Invent client logos.
+
+Invent company history.
+
+Use placeholders where real content is unavailable.
+
+---
+
+# Asset Rules
+
+Images
+
+Videos
+
+Icons
+
+Fonts
+
+Logos
+
+must always follow project documentation.
+
+Never replace approved assets.
+
+---
+
+# Animation Rules
+
+Never create new animations.
+
+Only use
+
+Rise
+
+Fade
+
+Underline
+
+Image Settle
+
+Everything else is rejected.
+
+---
+
+# Component Rules
+
+Every generated component
+
+Desktop
+
+Tablet
+
+Mobile
+
+CMS
+
+Accessibility
+
+Documentation
+
+Comments
+
+Reusable
+
+Responsive
+
+---
+
+# Error Handling
+
+AI should never silently ignore errors.
+
+Every detected issue should be explained.
+
+Possible fixes should be suggested.
+
+Never hide problems.
+
+---
+
+# Performance Rules
+
+Prefer
+
+Server Components.
+
+Image Optimization.
+
+Code Splitting.
+
+Lazy Loading.
+
+Avoid unnecessary JavaScript.
+
+---
+
+# Accessibility Rules
+
+Keyboard Support.
+
+Screen Reader Support.
+
+Alt Text.
+
+Visible Focus.
+
+Reduced Motion.
+
+Semantic HTML.
+
+Required on every page.
+
+---
+
+# Security Rules
+
+Validate Inputs.
+
+Protect APIs.
+
+Never expose secrets.
+
+Never hardcode credentials.
+
+Never trust user input.
+
+---
+
+# Deployment Rules
+
+Before deployment verify
+
+Build passes.
+
+Lint passes.
+
+Types pass.
+
+Performance acceptable.
+
+Accessibility verified.
+
+CMS working.
+
+Forms working.
+
+SEO configured.
+
+---
+
+# Final AI Acceptance Checklist
+
+Before accepting AI-generated work
+
+✓ Matches Brand System
+
+✓ Matches Design Language
+
+✓ Matches Experience Language
+
+✓ Matches Component System
+
+✓ Matches CMS System
+
+✓ Matches Development System
+
+✓ Commented
+
+✓ Responsive
+
+✓ CMS Ready
+
+✓ Beginner Friendly
+
+✓ Accessible
+
+✓ Performant
+
+✓ Secure
+
+✓ Tested
+
+---
+
+# Final Principle
+
+AI should feel like another member of the development team.
+
+Not the project owner.
+
+The documentation owns the project.
+
+AI follows the documentation.
+
+Humans approve the final result.
+
+---
+
+**End of Document**
