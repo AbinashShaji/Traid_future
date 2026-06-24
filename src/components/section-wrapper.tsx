@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { riseVariants } from "../animations/presets";
+import { useViewportReveal } from "../animations/viewport";
 import { cn } from "../utils/cn";
 
 export interface SectionWrapperProps {
@@ -30,7 +30,20 @@ export const SectionWrapper: React.FC<SectionWrapperProps> = ({
   id,
   children,
 }) => {
+  const reveal = useViewportReveal();
+
   if (!animate) {
+    return (
+      <section
+        id={id}
+        className={cn("w-full py-16 md:py-24", padded && "px-6 md:px-12 lg:px-16", className)}
+      >
+        {children}
+      </section>
+    );
+  }
+
+  if (!reveal.motionEnabled) {
     return (
       <section
         id={id}
@@ -45,10 +58,10 @@ export const SectionWrapper: React.FC<SectionWrapperProps> = ({
     <motion.section
       id={id}
       className={cn("w-full py-16 md:py-24", padded && "px-6 md:px-12 lg:px-16", className)}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
-      variants={riseVariants}
+      initial={reveal.sectionMotion.initial}
+      whileInView={reveal.sectionMotion.whileInView}
+      viewport={reveal.sectionMotion.viewport}
+      variants={reveal.sectionMotion.variants}
       custom={delay}
     >
       {children}

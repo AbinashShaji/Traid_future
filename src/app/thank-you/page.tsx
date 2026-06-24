@@ -1,6 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
-import { CheckCircle, ArrowRight, House, LayoutGrid, BookOpen } from "lucide-react";
+import { CheckCircle, House, LayoutGrid, BookOpen } from "lucide-react";
 import { GlobalLayout } from "../../components/global-layout";
 import { SectionWrapper } from "../../components/section-wrapper";
 import { Container } from "../../components/container";
@@ -26,7 +26,7 @@ export default function ThankYouPage() {
             and contact you within 24 business hours to confirm the time slot and share the meeting link.
           </p>
 
-          <Card className="w-full text-left p-6 md:p-8 bg-white border border-[#E8E8E8] mt-4">
+          <Card className="w-full text-left p-6 md:p-8 bg-[#FAF9F6] border border-[#E8E8E8] mt-4">
             <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-[#111111] mb-4">
               What happens next?
             </h3>

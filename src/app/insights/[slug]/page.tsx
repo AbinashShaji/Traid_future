@@ -31,7 +31,6 @@ export async function generateStaticParams() {
  */
 function renderContent(content: string) {
   const lines = content.split("\n");
-  let inList = false;
   const listItems: string[] = [];
   const elements: React.ReactNode[] = [];
 
@@ -45,7 +44,6 @@ function renderContent(content: string) {
         </ul>
       );
       listItems.length = 0;
-      inList = false;
     }
   };
 
@@ -72,7 +70,6 @@ function renderContent(content: string) {
     }
     // List Items (* or -)
     else if (trimmed.startsWith("*") || trimmed.startsWith("-")) {
-      inList = true;
       listItems.push(trimmed.replace(/^[\*\-]\s*/, ""));
     }
     // Regular paragraphs or spacers

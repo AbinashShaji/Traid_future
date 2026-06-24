@@ -28,6 +28,9 @@ import { ImageWrapper } from "../../components/image-wrapper";
 import { CTA } from "../../components/cta";
 import { cn } from "../../utils/cn";
 import { faqs, type FAQ } from "../../mock/faq";
+import { motion } from "framer-motion";
+import { riseVariants } from "../../animations/presets";
+import { useViewportReveal } from "../../animations/viewport";
 
 type Capability = {
   title: string;
@@ -153,11 +156,11 @@ const clientReasons = [
 
 function FAQItem({ faq, isOpen, onToggle }: { faq: FAQ; isOpen: boolean; onToggle: () => void }) {
   return (
-    <div className="border border-[#E8E8E8] rounded-sm bg-white overflow-hidden transition-all duration-300">
+    <div className="border border-[#E8E8E8] rounded-sm bg-[#FAF9F6] overflow-hidden transition-all duration-300">
       <button
         type="button"
         onClick={onToggle}
-        className="w-full px-5 md:px-6 py-4 flex items-center justify-between gap-4 text-left font-sans font-medium text-[#111111] hover:bg-[#FAF9F6]/40 transition-colors"
+        className="w-full px-5 md:px-6 py-4 flex items-center justify-between gap-4 text-left font-sans font-medium text-[#111111] hover:bg-[#FAF9F6]/40 transition-all duration-300 hover:translate-x-0.5"
       >
         <span className="text-sm md:text-base leading-snug">{faq.question}</span>
         <ChevronDown
@@ -186,22 +189,42 @@ function FAQItem({ faq, isOpen, onToggle }: { faq: FAQ; isOpen: boolean; onToggl
 export default function AboutPageContent() {
   const [selectedCapability, setSelectedCapability] = React.useState<Capability>(capabilities[0]);
   const [openFaq, setOpenFaq] = React.useState<string | null>("faq-002");
+  const reveal = useViewportReveal();
 
   const faqsForPage = faqs.slice(0, 6);
 
   return (
     <GlobalLayout>
-      <SectionWrapper animate={true} className="pt-20 pb-12 md:pt-28 md:pb-16 bg-[#FAF9F6]">
+      <SectionWrapper animate={false} className="pt-20 pb-12 md:pt-28 md:pb-16 bg-[#FAF9F6]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            <div className="lg:col-span-7 flex flex-col gap-6">
-              <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#5F5F5F] font-semibold">
-                Who We Are
-              </span>
-              <div className="flex flex-col gap-5">
-                <SectionHeading tag="h1">
+            <motion.div
+              initial={reveal.containerMotion.initial}
+              whileInView={reveal.containerMotion.whileInView}
+              viewport={reveal.containerMotion.viewport}
+              variants={reveal.containerMotion.variants}
+              className="lg:col-span-6 flex flex-col gap-8 relative z-10"
+            >
+              {/* Eyebrow / Thin HR rule */}
+              <motion.div variants={riseVariants} custom={0} className="flex items-center gap-4 text-[#5F5F5F]">
+                <span className="h-[1px] w-8 bg-[#111111]/20 inline-block" />
+                <span className="font-sans text-xs uppercase tracking-[0.2em] font-semibold">
+                  Who We Are
+                </span>
+              </motion.div>
+
+              {/* Heading with 01 background */}
+              <motion.div variants={riseVariants} custom={1} className="relative">
+                <span className="absolute -top-16 -left-6 font-sans text-[10rem] font-black text-[#111111]/[0.02] leading-none select-none pointer-events-none">
+                  01
+                </span>
+                <SectionHeading tag="h1" className="relative z-10">
                   We build the systems behind serious growth.
                 </SectionHeading>
+              </motion.div>
+
+              {/* Paragraphs */}
+              <motion.div variants={riseVariants} custom={2} className="flex flex-col gap-5">
                 <p className="font-sans text-lg md:text-xl text-[#111111] leading-relaxed max-w-2xl">
                   Triads Future exists to help businesses turn operational friction into a competitive advantage.
                 </p>
@@ -209,8 +232,10 @@ export default function AboutPageContent() {
                   We combine strategy, design, software, automation, and growth thinking so companies can move
                   with more clarity, less waste, and a stronger sense of ownership over the systems that matter.
                 </p>
-              </div>
-              <div className="flex flex-wrap gap-4 pt-2">
+              </motion.div>
+
+              {/* CTA buttons */}
+              <motion.div variants={riseVariants} custom={3} className="flex flex-wrap gap-4 pt-2">
                 <Link href="/contact">
                   <Button variant="primary" size="lg">
                     Book a strategy call
@@ -221,52 +246,74 @@ export default function AboutPageContent() {
                     Explore capabilities
                   </Button>
                 </Link>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
-            <div className="lg:col-span-5">
-              <div className="grid grid-cols-12 gap-4">
-                <div className="col-span-7 aspect-[4/5] relative">
+            <motion.div
+              initial={reveal.containerMotion.initial}
+              whileInView={reveal.containerMotion.whileInView}
+              viewport={reveal.containerMotion.viewport}
+              variants={reveal.containerMotion.variants}
+              className="lg:col-span-6 relative mt-12 lg:mt-0"
+            >
+              <div className="grid grid-cols-12 gap-6 items-start">
+                <motion.div
+                  variants={riseVariants}
+                  custom={1}
+                  className="col-span-7 md:col-span-8 aspect-[3/4] relative lg:translate-y-6"
+                >
                   <ImageWrapper
                     src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80"
                     alt="Team collaborating around digital strategy and planning"
                     fill
                     priority
-                    sizes="(max-width: 1024px) 70vw, 28vw"
-                    containerClassName="w-full h-full shadow-[0_10px_30px_rgba(0,0,0,0.04)]"
+                    sizes="(max-width: 1024px) 60vw, 30vw"
+                    containerClassName="w-full h-full shadow-[0_4px_24px_rgba(0,0,0,0.03)] rounded-sm"
                   />
-                </div>
-                <div className="col-span-5 flex flex-col gap-4">
-                  <div className="aspect-[1/1.1] rounded-sm border border-[#E8E8E8] bg-white p-4 md:p-5 flex flex-col justify-between">
+                </motion.div>
+
+                <div className="col-span-5 md:col-span-4 flex flex-col gap-6 lg:-translate-y-6">
+                  {/* Mission Card */}
+                  <motion.div
+                    variants={riseVariants}
+                    custom={2}
+                    className="aspect-[1/1.1] rounded-sm border border-[#E8E8E8] bg-[#FAF9F6] p-4 md:p-5 flex flex-col justify-between shadow-[0_4px_16px_rgba(0,0,0,0.01)] hover:border-[#111111] hover:bg-[#111111]/[0.01] hover:scale-[1.015] hover:-translate-y-px transition-all duration-300 ease-out"
+                  >
                     <div>
                       <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#5F5F5F] font-semibold">
                         Mission
                       </span>
-                      <p className="font-heading text-lg md:text-xl font-semibold text-[#111111] mt-3 leading-tight">
+                      <p className="font-heading text-base md:text-lg font-semibold text-[#111111] mt-3 leading-tight">
                         Make growth easier to execute and harder to outgrow.
                       </p>
                     </div>
-                    <div className="w-12 h-12 rounded-full bg-[#111111]/5 flex items-center justify-center">
-                      <Workflow className="w-5 h-5 text-[#111111]" />
+                    <div className="w-10 h-10 rounded-sm bg-[#111111]/5 flex items-center justify-center">
+                      <Workflow className="w-4 h-4 text-[#111111]" />
                     </div>
-                  </div>
-                  <div className="aspect-[1/1.1] rounded-sm bg-[#111111] text-[#FAF9F6] p-4 md:p-5 flex flex-col justify-between">
+                  </motion.div>
+
+                  {/* Promise Card */}
+                  <motion.div
+                    variants={riseVariants}
+                    custom={3}
+                    className="aspect-[1/1.1] rounded-sm bg-[#111111] text-[#FAF9F6] p-4 md:p-5 flex flex-col justify-between shadow-[0_4px_16px_rgba(0,0,0,0.02)] hover:scale-[1.015] hover:-translate-y-px transition-all duration-300 ease-out"
+                  >
                     <div>
                       <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#FAF9F6]/70 font-semibold">
                         Promise
                       </span>
-                      <p className="font-heading text-lg md:text-xl font-semibold mt-3 leading-tight">
+                      <p className="font-heading text-base md:text-lg font-semibold mt-3 leading-tight">
                         Clear direction, visible progress, and work that lasts.
                       </p>
                     </div>
-                    <div className="flex items-center gap-2 text-xs text-[#FAF9F6]/80">
-                      <ShieldCheck className="w-4 h-4" />
-                      <span>Trusted, standard, maintainable</span>
+                    <div className="flex items-center gap-2 text-[10px] text-[#FAF9F6]/80 mt-2">
+                      <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
+                      <span className="truncate">Trusted, standard, maintainable</span>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </Container>
       </SectionWrapper>
@@ -302,7 +349,7 @@ export default function AboutPageContent() {
                 />
               </div>
               <div className="md:col-span-7 flex flex-col gap-4">
-                <Card className="p-6 md:p-8 bg-white">
+                <Card className="p-6 md:p-8 bg-[#FAF9F6]">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-sm bg-[#111111]/5 flex items-center justify-center">
                       <Gauge className="w-5 h-5 text-[#111111]" />
@@ -349,33 +396,44 @@ export default function AboutPageContent() {
               Principles that shape how we work.
             </SectionHeading>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5">
+          <motion.div
+            initial={reveal.containerMotion.initial}
+            whileInView={reveal.containerMotion.whileInView}
+            viewport={reveal.containerMotion.viewport}
+            variants={reveal.containerMotion.variants}
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5"
+          >
             {principles.map((principle, index) => (
-              <Card
+              <motion.div
                 key={principle.title}
-                hoverEffect
+                variants={riseVariants}
                 className={cn(
-                  "p-6 md:p-7 flex flex-col gap-4 min-h-[210px]",
+                  "flex flex-col min-h-[210px]",
                   index === 0 && "md:col-span-2 xl:col-span-1"
                 )}
               >
-                <div className="flex items-center justify-between gap-4">
-                  <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#5F5F5F] font-semibold">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div className="w-9 h-9 rounded-full bg-[#111111]/5 flex items-center justify-center">
-                    <Sparkles className="w-4 h-4 text-[#111111]" />
+                <Card
+                  hoverEffect
+                  className="p-6 md:p-7 flex flex-col gap-4 w-full h-full"
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#5F5F5F] font-semibold">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="w-9 h-9 rounded-sm bg-[#111111]/5 flex items-center justify-center">
+                      <Sparkles className="w-4 h-4 text-[#111111]" />
+                    </div>
                   </div>
-                </div>
-                <h3 className="font-heading text-lg md:text-xl font-semibold text-[#111111] leading-tight">
-                  {principle.title}
-                </h3>
-                <p className="font-sans text-sm md:text-base text-[#5F5F5F] leading-relaxed">
-                  {principle.description}
-                </p>
-              </Card>
+                  <h3 className="font-heading text-lg md:text-xl font-semibold text-[#111111] leading-tight">
+                    {principle.title}
+                  </h3>
+                  <p className="font-sans text-sm md:text-base text-[#5F5F5F] leading-relaxed">
+                    {principle.description}
+                  </p>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </Container>
       </SectionWrapper>
 
@@ -399,14 +457,14 @@ export default function AboutPageContent() {
                 <div className="space-y-6">
                   {process.map((step, index) => (
                     <div key={step.step} className="relative pl-12 md:pl-16">
-                      <div className="absolute left-0 top-1 flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-full border border-[#111111] bg-[#FAF9F6] text-[#111111] font-heading text-sm md:text-base font-semibold">
+                      <div className="absolute left-0 top-1 flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-sm border border-[#111111] bg-[#FAF9F6] text-[#111111] font-heading text-sm md:text-base font-semibold">
                         {step.step}
                       </div>
                       <Card
                         hoverEffect
                         className={cn(
                           "p-5 md:p-6",
-                          index % 2 === 1 ? "bg-[#FAF9F6]" : "bg-white"
+                          index % 2 === 1 ? "bg-[#FAF9F6]" : "bg-[#FAF9F6]"
                         )}
                       >
                         <div className="flex flex-col gap-2">
@@ -439,7 +497,7 @@ export default function AboutPageContent() {
             </div>
             <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-4">
               {clientReasons.map((reason, index) => (
-                <Card key={reason} hoverEffect className="p-5 md:p-6 bg-white">
+                <Card key={reason} hoverEffect className="p-5 md:p-6 bg-[#FAF9F6]">
                   <div className="flex items-start gap-3">
                     <div className="w-9 h-9 rounded-sm bg-[#111111]/5 flex items-center justify-center shrink-0">
                       <Check className="w-4 h-4 text-[#111111]" />
@@ -494,50 +552,63 @@ export default function AboutPageContent() {
               </div>
             </div>
             <div className="lg:col-span-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+              <motion.div
+                initial={reveal.containerMotion.initial}
+                whileInView={reveal.containerMotion.whileInView}
+                viewport={reveal.containerMotion.viewport}
+                variants={reveal.containerMotion.variants}
+                className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"
+              >
                 {capabilities.map((capability) => {
                   const isActive = selectedCapability.title === capability.title;
                   const Icon = capability.icon;
                   return (
-                    <button
+                    <motion.div
                       key={capability.title}
-                      type="button"
-                      onMouseEnter={() => setSelectedCapability(capability)}
-                      onFocus={() => setSelectedCapability(capability)}
-                      onClick={() => setSelectedCapability(capability)}
-                      className={cn(
-                        "text-left rounded-sm border p-5 md:p-6 transition-all duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#111111]",
-                        isActive
-                          ? "border-[#111111] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.03)]"
-                          : "border-[#E8E8E8] bg-transparent hover:border-[#111111] hover:bg-[#111111]/[0.01]"
-                      )}
+                      variants={riseVariants}
+                      className="w-full h-full flex"
                     >
-                      <div className="flex items-start justify-between gap-4 mb-6">
-                        <div className="w-10 h-10 rounded-sm bg-[#111111]/5 flex items-center justify-center">
-                          <Icon className="w-5 h-5 text-[#111111]" />
+                      <button
+                        type="button"
+                        onMouseEnter={() => setSelectedCapability(capability)}
+                        onFocus={() => setSelectedCapability(capability)}
+                        onClick={() => setSelectedCapability(capability)}
+                        className={cn(
+                          "text-left rounded-sm border p-5 md:p-6 transition-all duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#111111] w-full flex flex-col justify-between hover:scale-[1.015] hover:-translate-y-px",
+                          isActive
+                            ? "border-[#111111] bg-[#FAF9F6]"
+                            : "border-[#E8E8E8] bg-transparent hover:border-[#111111] hover:bg-[#111111]/[0.01]"
+                        )}
+                      >
+                        <div>
+                          <div className="flex items-start justify-between gap-4 mb-6">
+                            <div className="w-10 h-10 rounded-sm bg-[#111111]/5 flex items-center justify-center">
+                              <Icon className="w-5 h-5 text-[#111111]" />
+                            </div>
+                            <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#5F5F5F] font-semibold">
+                              {capability.eyebrow}
+                            </span>
+                          </div>
+                          <h3 className="font-heading text-lg font-semibold text-[#111111] leading-tight mb-2">
+                            {capability.title}
+                          </h3>
+                          <p className="font-sans text-sm text-[#5F5F5F] leading-relaxed mb-5">
+                            {capability.description}
+                          </p>
                         </div>
-                        <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#5F5F5F] font-semibold">
-                          {capability.eyebrow}
-                        </span>
-                      </div>
-                      <h3 className="font-heading text-lg font-semibold text-[#111111] leading-tight mb-2">
-                        {capability.title}
-                      </h3>
-                      <p className="font-sans text-sm text-[#5F5F5F] leading-relaxed mb-5">
-                        {capability.description}
-                      </p>
-                      <ul className="space-y-2">
-                        {capability.details.map((detail) => (
-                          <li key={detail} className="flex items-center gap-2 text-xs text-[#111111]">
-                            <Zap className="w-3.5 h-3.5 text-[#5F5F5F]" />
-                            <span>{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </button>
+                        <ul className="space-y-2 w-full pt-2">
+                          {capability.details.map((detail) => (
+                            <li key={detail} className="flex items-center gap-2 text-xs text-[#111111]">
+                              <Zap className="w-3.5 h-3.5 text-[#5F5F5F]" />
+                              <span>{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </button>
+                    </motion.div>
                   );
                 })}
-              </div>
+              </motion.div>
             </div>
           </div>
         </Container>

@@ -203,7 +203,7 @@ const MobileTopHeader: React.FC = () => {
                 "flex items-center gap-3 rounded-sm border px-4 py-3 text-sm font-medium transition-colors",
                 isActive
                     ? "border-[#111111] bg-[#111111] text-[#FAF9F6]"
-                    : "border-[#E8E8E8] bg-white text-[#5F5F5F] hover:border-[#111111] hover:text-[#111111]"
+                    : "border-[#E8E8E8] bg-[#FAF9F6] text-[#5F5F5F] hover:border-[#111111] hover:text-[#111111]"
                 )}
               >
                 <Icon className="h-4 w-4 shrink-0" />

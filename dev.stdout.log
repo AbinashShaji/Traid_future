@@ -230,3 +230,66 @@ Creating turbopack project {
  GET / 200 in 1511ms (next.js: 24ms, application-code: 1488ms)
  GET / 200 in 1515ms (next.js: 564ms, application-code: 951ms)
  GET / 200 in 1519ms (next.js: 325ms, application-code: 1194ms)
+ GET / 200 in 4.4s (next.js: 388ms, application-code: 4.1s)
+ GET / 200 in 5.6s (next.js: 1607ms, application-code: 4.0s)
+ GET /solutions 200 in 1204ms (next.js: 755ms, application-code: 449ms)
+ GET /contact 200 in 814ms (next.js: 547ms, application-code: 267ms)
+ GET /about 200 in 657ms (next.js: 503ms, application-code: 153ms)
+ GET /insights 200 in 754ms (next.js: 581ms, application-code: 172ms)
+ GET /contact 200 in 88ms (next.js: 15ms, application-code: 73ms)
+✓ Finished filesystem cache database compaction in 10.9s
+✓ Compiled in 4s
+ GET /contact 200 in 4.6s (next.js: 381ms, application-code: 4.2s)
+ GET / 200 in 726ms (next.js: 66ms, application-code: 660ms)
+ GET / 200 in 740ms (next.js: 16ms, application-code: 724ms)
+ GET / 200 in 2.7s (next.js: 380ms, application-code: 2.3s)
+ GET / 200 in 1049ms (next.js: 13ms, application-code: 1037ms)
+ GET / 200 in 809ms (next.js: 15ms, application-code: 794ms)
+ GET / 200 in 1948ms (next.js: 13ms, application-code: 1935ms)
+ GET / 200 in 645ms (next.js: 12ms, application-code: 633ms)
+✓ Compiled in 4.7s
+ GET / 200 in 8.5s (next.js: 3.4s, application-code: 5.1s)
+ GET / 200 in 4.6s (next.js: 26ms, application-code: 4.6s)
+ GET / 200 in 4.4s (next.js: 16ms, application-code: 4.4s)
+ GET / 200 in 4.4s (next.js: 604ms, application-code: 3.8s)
+ GET / 200 in 4.4s (next.js: 268ms, application-code: 4.2s)
+ GET / 200 in 4.2s (next.js: 571ms, application-code: 3.6s)
+ GET / 200 in 4.6s (next.js: 39ms, application-code: 4.6s)
+ GET / 200 in 2.1s (next.js: 19ms, application-code: 2.1s)
+ GET / 200 in 2.2s (next.js: 52ms, application-code: 2.1s)
+ GET / 200 in 2.2s (next.js: 554ms, application-code: 1643ms)
+ GET / 200 in 1666ms (next.js: 345ms, application-code: 1320ms)
+ GET / 200 in 1346ms (next.js: 510ms, application-code: 835ms)
+ GET / 200 in 1510ms (next.js: 23ms, application-code: 1488ms)
+ GET / 200 in 1279ms (next.js: 17ms, application-code: 1262ms)
+ GET / 200 in 1191ms (next.js: 273ms, application-code: 918ms)
+ GET / 200 in 1198ms (next.js: 25ms, application-code: 1174ms)
+ GET / 200 in 948ms (next.js: 224ms, application-code: 724ms)
+ GET / 200 in 1419ms (next.js: 482ms, application-code: 937ms)
+ GET / 200 in 1410ms (next.js: 15ms, application-code: 1395ms)
+ GET / 200 in 1201ms (next.js: 21ms, application-code: 1180ms)
+ GET / 200 in 968ms (next.js: 26ms, application-code: 942ms)
+ GET / 200 in 1170ms (next.js: 272ms, application-code: 897ms)
+ GET / 200 in 914ms (next.js: 222ms, application-code: 692ms)
+ GET / 200 in 936ms (next.js: 213ms, application-code: 723ms)
+ GET / 200 in 493ms (next.js: 17ms, application-code: 475ms)
+ GET / 200 in 282ms (next.js: 15ms, application-code: 267ms)
+ GET / 200 in 1452ms (next.js: 18ms, application-code: 1434ms)
+ GET / 200 in 607ms (next.js: 15ms, application-code: 592ms)
+ GET / 200 in 560ms (next.js: 12ms, application-code: 548ms)
+ GET / 200 in 654ms (next.js: 12ms, application-code: 642ms)
+ GET / 200 in 664ms (next.js: 22ms, application-code: 643ms)
+▲ Next.js 16.2.9 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.56.1:3000
+✓ Ready in 3.4s
+Creating turbopack project {
+  dir: 'C:\\Users\\abina\\OneDrive\\Desktop\\traids_future',
+  testMode: true
+}
+
+ GET / 200 in 6.6s (next.js: 2.4s, application-code: 4.2s)
+ GET / 200 in 1181ms (next.js: 18ms, application-code: 1163ms)
+ GET / 200 in 799ms (next.js: 18ms, application-code: 781ms)
+○ Compiling /test-hero ...
+ GET /test-hero 404 in 14.4s (next.js: 13.8s, application-code: 619ms)

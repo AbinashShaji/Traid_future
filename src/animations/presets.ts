@@ -1,25 +1,28 @@
 /**
- * Framer Motion Animation Presets for Triads Future
+ * Framer Motion animation presets for Triads Future.
  *
- * Enforces the brand-approved movements:
- * 1. Rise: Elements start 8px below and slide up while fading in.
- * 2. Fade: Simple opacity transition.
- * 3. Image Settle: Scaled at 102% settling to 100% over 500ms while fading.
+ * This file centralizes the shared motion language so sections can use the same
+ * timing, easing, and viewport behavior without duplicating inline config.
  */
-import type { Variants } from "framer-motion";
+import type { Variants, ViewportOptions } from "framer-motion";
 
-// Cubic-bezier typed as a const tuple for Framer Motion v12 strict ease typing
-const calmEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
+export const revealEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+export const revealViewport: ViewportOptions = {
+  once: true,
+  amount: 0.28,
+  margin: "0px 0px -12% 0px",
+};
 
 export const riseVariants: Variants = {
-  hidden: { opacity: 0, y: 8 },
+  hidden: { opacity: 0, y: 20 },
   visible: (custom: number = 0) => ({
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
-      ease: calmEase,
-      delay: custom * 0.1,
+      duration: 0.6,
+      ease: revealEase,
+      delay: custom * 0.08,
     },
   }),
 };
@@ -29,9 +32,9 @@ export const fadeVariants: Variants = {
   visible: (custom: number = 0) => ({
     opacity: 1,
     transition: {
-      duration: 0.4,
-      ease: "easeOut" as const,
-      delay: custom * 0.1,
+      duration: 0.6,
+      ease: revealEase,
+      delay: custom * 0.08,
     },
   }),
 };
@@ -42,8 +45,8 @@ export const imageSettleVariants: Variants = {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.5,
-      ease: calmEase,
+      duration: 0.6,
+      ease: revealEase,
     },
   },
 };
@@ -52,7 +55,50 @@ export const containerStagger: Variants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.08,
+      staggerChildren: 0.1,
+      delayChildren: 0.02,
+    },
+  },
+};
+
+export const processSequenceVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.02,
+    },
+  },
+};
+
+export const processCardVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    x: 80,
+    scale: 0.98,
+    filter: "blur(8px)",
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.6,
+      ease: revealEase,
+    },
+  },
+};
+
+export const processNumberVariants: Variants = {
+  hidden: {
+    scale: 1,
+  },
+  visible: {
+    scale: [1, 1.06, 1],
+    transition: {
+      duration: 0.6,
+      ease: revealEase,
     },
   },
 };

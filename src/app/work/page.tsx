@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -6,16 +8,19 @@ import { SectionWrapper } from "../../components/section-wrapper";
 import { Container } from "../../components/container";
 import { SectionHeading } from "../../components/section-heading";
 import { Button } from "../../components/button";
-import { Card } from "../../components/card";
 import { Divider } from "../../components/divider";
 import { ImageWrapper } from "../../components/image-wrapper";
 import { CTA } from "../../components/cta";
 import { Badge } from "../../components/badge";
+import { motion } from "framer-motion";
+import { useViewportReveal } from "../../animations/viewport";
 
 // Mock data imports
 import { projects } from "../../mock/projects";
 
 export default function WorkPage() {
+  const reveal = useViewportReveal();
+
   return (
     <GlobalLayout>
       {/* 1. Hero Section */}
@@ -38,10 +43,17 @@ export default function WorkPage() {
       {/* 2. Projects Listing */}
       <SectionWrapper animate={true} className="py-16 md:py-24">
         <Container>
-          <div className="space-y-24">
+          <motion.div
+            initial={reveal.containerMotion.initial}
+            whileInView={reveal.containerMotion.whileInView}
+            viewport={reveal.containerMotion.viewport}
+            variants={reveal.containerMotion.variants}
+            className="space-y-24"
+          >
             {projects.map((project, index) => (
-              <div 
-                key={project.id} 
+              <motion.div
+                key={project.id}
+                variants={reveal.itemMotion.variants}
                 className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center ${
                   index % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}
@@ -56,7 +68,7 @@ export default function WorkPage() {
                         fill
                         sizes="(max-width: 1024px) 100vw, 55vw"
                         containerClassName="w-full h-full"
-                        className="transition-transform duration-500 group-hover:scale-[1.01]"
+                        className="transition-transform duration-500 group-hover:scale-[1.02]"
                       />
                     </div>
                   </Link>
@@ -110,9 +122,9 @@ export default function WorkPage() {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </Container>
       </SectionWrapper>
 

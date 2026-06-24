@@ -5,6 +5,7 @@
   --foreground: #111111;
   --secondary: #5F5F5F;
   --border: #E8E8E8;
+  --color-error: #DC2626;
 }
 
 @theme {
@@ -12,6 +13,7 @@
   --color-foreground: var(--foreground);
   --color-secondary: var(--secondary);
   --color-border: var(--border);
+  --color-error: #DC2626;
   
   --font-sans: var(--font-inter), sans-serif;
   --font-heading: var(--font-outfit), sans-serif;

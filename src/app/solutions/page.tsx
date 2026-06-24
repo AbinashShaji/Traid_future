@@ -1,6 +1,8 @@
+"use client";
+
 import * as React from "react";
 import Link from "next/link";
-import { ArrowRight, Globe, Monitor, Layers, Zap, TrendingUp, Check, HelpCircle } from "lucide-react";
+import { ArrowRight, Globe, Monitor, Layers, Zap, TrendingUp, Check, HelpCircle, type LucideIcon } from "lucide-react";
 import { GlobalLayout } from "../../components/global-layout";
 import { SectionWrapper } from "../../components/section-wrapper";
 import { Container } from "../../components/container";
@@ -11,12 +13,14 @@ import { Divider } from "../../components/divider";
 import { CTA } from "../../components/cta";
 import { Badge } from "../../components/badge";
 import { ImageWrapper } from "../../components/image-wrapper";
+import { motion } from "framer-motion";
+import { useViewportReveal } from "../../animations/viewport";
 
 // Mock data imports
 import { solutions } from "../../mock/solutions";
 import { getFeaturedProjects } from "../../mock/projects";
 
-const iconMap: Record<string, React.ComponentType<any>> = {
+const iconMap: Record<string, LucideIcon> = {
   Globe,
   Monitor,
   Layers,
@@ -26,6 +30,7 @@ const iconMap: Record<string, React.ComponentType<any>> = {
 
 export default function SolutionsPage() {
   const featuredProjects = getFeaturedProjects();
+  const reveal = useViewportReveal();
 
   return (
     <GlobalLayout>
@@ -206,7 +211,13 @@ export default function SolutionsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div
+            initial={reveal.containerMotion.initial}
+            whileInView={reveal.containerMotion.whileInView}
+            viewport={reveal.containerMotion.viewport}
+            variants={reveal.containerMotion.variants}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
             {[
               {
                 step: "Phase 01",
@@ -233,24 +244,30 @@ export default function SolutionsPage() {
                 details: "We manage the transition, train your team, deploy analytics, and monitor performance. All code, repository ownership, and licenses transfer to you.",
               },
             ].map((phase, index) => (
-              <Card key={index} className="flex flex-col justify-between p-6">
-                <div>
-                  <span className="font-sans text-xs font-semibold text-[#5F5F5F] uppercase tracking-wider block mb-2">
-                    {phase.step}
-                  </span>
-                  <h4 className="font-heading text-lg font-semibold text-[#111111] mb-1">
-                    {phase.title}
-                  </h4>
-                  <span className="font-sans text-xs text-[#5F5F5F] font-medium block mb-4 italic">
-                    {phase.duration}
-                  </span>
-                  <p className="font-sans text-sm text-[#5F5F5F] leading-relaxed">
-                    {phase.details}
-                  </p>
-                </div>
-              </Card>
+              <motion.div
+                key={index}
+                variants={reveal.itemMotion.variants}
+                className="w-full h-full flex flex-col"
+              >
+                <Card className="flex flex-col justify-between p-6 w-full h-full">
+                  <div>
+                    <span className="font-sans text-xs font-semibold text-[#5F5F5F] uppercase tracking-wider block mb-2">
+                      {phase.step}
+                    </span>
+                    <h4 className="font-heading text-lg font-semibold text-[#111111] mb-1">
+                      {phase.title}
+                    </h4>
+                    <span className="font-sans text-xs text-[#5F5F5F] font-medium block mb-4 italic">
+                      {phase.duration}
+                    </span>
+                    <p className="font-sans text-sm text-[#5F5F5F] leading-relaxed">
+                      {phase.details}
+                    </p>
+                  </div>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </Container>
       </SectionWrapper>
 

@@ -12,7 +12,8 @@ export interface FormInputProps extends React.InputHTMLAttributes<HTMLInputEleme
  */
 export const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
   ({ className, label, error, id, ...props }, ref) => {
-    const inputId = id || React.useId();
+    const generatedId = React.useId();
+    const inputId = id || generatedId;
     
     return (
       <div className="flex flex-col gap-2 w-full">
@@ -28,14 +29,14 @@ export const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
           className={cn(
             "w-full px-4 py-3 bg-transparent border rounded-sm font-sans text-[#111111] transition-all duration-200 outline-none",
             error 
-              ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500" 
+              ? "border-[var(--color-error)] focus:border-[var(--color-error)] focus:ring-1 focus:ring-[var(--color-error)]" 
               : "border-[#E8E8E8] focus:border-[#111111] focus:ring-1 focus:ring-[#111111]",
             className
           )}
           {...props}
         />
         {error && (
-          <span className="font-sans text-xs text-red-500 mt-1">
+          <span className="font-sans text-xs text-[var(--color-error)] mt-1">
             {error}
           </span>
         )}

@@ -12,9 +12,10 @@ import { Card } from "../../components/card";
 import { Divider } from "../../components/divider";
 import { ImageWrapper } from "../../components/image-wrapper";
 import { FormInput } from "../../components/form-input";
-import { Badge } from "../../components/badge";
 import { Tag } from "../../components/tag";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
+import { useViewportReveal } from "../../animations/viewport";
 
 // Mock data imports
 import { articles, categories } from "../../mock/articles";
@@ -23,6 +24,7 @@ export default function InsightsPage() {
   const [searchQuery, setSearchQuery] = React.useState("");
   const [selectedCategory, setSelectedCategory] = React.useState<string | null>(null);
   const [email, setEmail] = React.useState("");
+  const reveal = useViewportReveal();
 
   // Get featured article
   const featuredArticle = articles.find((a) => a.featured);
@@ -198,48 +200,60 @@ export default function InsightsPage() {
               </Button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+              initial={reveal.containerMotion.initial}
+              whileInView={reveal.containerMotion.whileInView}
+              viewport={reveal.containerMotion.viewport}
+              variants={reveal.containerMotion.variants}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
               {filteredArticles.map((article) => (
-                <Card key={article.id} hoverEffect className="flex flex-col justify-between p-0 overflow-hidden">
-                  <div>
-                    <div className="aspect-[16/10] relative">
-                      <ImageWrapper
-                        src={article.coverImage}
-                        alt={article.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 30vw"
-                        containerClassName="w-full h-full border-none rounded-none"
-                      />
-                    </div>
-                    <div className="p-6">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="font-sans text-xs text-[#5F5F5F] font-semibold">{article.category}</span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#E8E8E8]" />
-                        <span className="font-sans text-xs text-[#5F5F5F]">{article.readingTime} min read</span>
+                <motion.div
+                  key={article.id}
+                  variants={reveal.itemMotion.variants}
+                  className="w-full h-full flex flex-col"
+                >
+                  <Card hoverEffect className="flex flex-col justify-between p-0 overflow-hidden w-full h-full">
+                    <div>
+                      <div className="aspect-[16/10] relative">
+                        <ImageWrapper
+                          src={article.coverImage}
+                          alt={article.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 30vw"
+                          containerClassName="w-full h-full border-none rounded-none"
+                        />
                       </div>
-                      <h3 className="font-heading text-lg font-semibold text-[#111111] mb-2 leading-snug">
-                        <Link href={`/insights/${article.slug}`} className="hover:underline">
-                          {article.title}
-                        </Link>
-                      </h3>
-                      <p className="font-sans text-sm text-[#5F5F5F] leading-relaxed">
-                        {article.excerpt}
-                      </p>
+                      <div className="p-6">
+                        <div className="flex items-center gap-3 mb-3">
+                          <span className="font-sans text-xs text-[#5F5F5F] font-semibold">{article.category}</span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#E8E8E8]" />
+                          <span className="font-sans text-xs text-[#5F5F5F]">{article.readingTime} min read</span>
+                        </div>
+                        <h3 className="font-heading text-lg font-semibold text-[#111111] mb-2 leading-snug">
+                          <Link href={`/insights/${article.slug}`} className="hover:underline">
+                            {article.title}
+                          </Link>
+                        </h3>
+                        <p className="font-sans text-sm text-[#5F5F5F] leading-relaxed">
+                          {article.excerpt}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="px-6 pb-6 pt-2 flex items-center justify-between border-t border-[#E8E8E8]/40">
-                    <span className="font-sans text-xs text-[#5F5F5F]">
-                      By {article.author}
-                    </span>
-                    <Link href={`/insights/${article.slug}`}>
-                      <Button variant="text" size="sm" className="group">
-                        Read <ArrowRight className="inline-block w-3.5 h-3.5 ml-1 transition-transform group-hover:translate-x-0.5" />
-                      </Button>
-                    </Link>
-                  </div>
-                </Card>
+                    <div className="px-6 pb-6 pt-2 flex items-center justify-between border-t border-[#E8E8E8]/40 mt-auto">
+                      <span className="font-sans text-xs text-[#5F5F5F]">
+                        By {article.author}
+                      </span>
+                      <Link href={`/insights/${article.slug}`}>
+                        <Button variant="text" size="sm" className="group">
+                          Read <ArrowRight className="inline-block w-3.5 h-3.5 ml-1 transition-transform group-hover:translate-x-0.5" />
+                        </Button>
+                      </Link>
+                    </div>
+                  </Card>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           )}
 
           {/* 5. Pagination Placeholder */}
@@ -266,7 +280,7 @@ export default function InsightsPage() {
       {/* 6. Newsletter Card */}
       <section className="w-full py-16 md:py-24 bg-[#FAF9F6]">
         <Container>
-          <div className="max-w-4xl mx-auto border border-[#E8E8E8] rounded-sm p-8 md:p-12 bg-white/50">
+          <div className="max-w-4xl mx-auto border border-[#E8E8E8] rounded-sm p-8 md:p-12 bg-[#FAF9F6]/50">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-6 flex flex-col gap-3">
                 <div className="w-10 h-10 rounded-sm bg-[#111111]/5 flex items-center justify-center mb-2">

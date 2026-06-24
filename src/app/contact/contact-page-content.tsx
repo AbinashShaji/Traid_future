@@ -13,7 +13,6 @@ import { SectionHeading } from "../../components/section-heading";
 import { Button } from "../../components/button";
 import { FormInput } from "../../components/form-input";
 import { FormTextArea } from "../../components/form-textarea";
-import { Card } from "../../components/card";
 import { Divider } from "../../components/divider";
 import { toast } from "sonner";
 import { cn } from "../../utils/cn";
@@ -64,7 +63,7 @@ function ContactPageContent() {
     }
   }, [interest, setValue]);
 
-  const onSubmit = async (_data: ContactFormValues) => {
+  const onSubmit = async () => {
     const promise = () => new Promise((resolve) => setTimeout(resolve, 1500));
     toast.promise(promise(), {
       loading: "Submitting details...",
@@ -161,7 +160,7 @@ function ContactPageContent() {
             </div>
 
             {/* Right: Form */}
-            <div className="lg:col-span-7 bg-white border border-[#E8E8E8] rounded-sm p-6 md:p-10 shadow-[0_4px_24px_rgba(0,0,0,0.01)]">
+            <div className="lg:col-span-7 bg-[#FAF9F6] border border-[#E8E8E8] rounded-sm p-6 md:p-10 shadow-[0_4px_24px_rgba(0,0,0,0.01)]">
               <div className="flex items-center gap-2 mb-6">
                 <Calendar className="w-5 h-5 text-[#111111]" />
                 <h3 className="font-heading text-lg font-semibold text-[#111111]">
@@ -244,7 +243,7 @@ function ContactPageContent() {
               return (
                 <div
                   key={faq.id}
-                  className="border border-[#E8E8E8] rounded-sm bg-white overflow-hidden transition-all duration-300"
+                  className="border border-[#E8E8E8] rounded-sm bg-[#FAF9F6] overflow-hidden transition-all duration-300"
                 >
                   <button
                     onClick={() => toggleFaq(faq.id)}

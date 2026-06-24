@@ -1,6 +1,8 @@
+"use client";
+
 import * as React from "react";
 import Link from "next/link";
-import { ArrowRight, Globe, Monitor, Layers, Zap, TrendingUp, Check } from "lucide-react";
+import { ArrowRight, Globe, Monitor, Layers, Zap, TrendingUp, Check, type LucideIcon } from "lucide-react";
 import { GlobalLayout } from "../components/global-layout";
 import { SectionWrapper } from "../components/section-wrapper";
 import { Container } from "../components/container";
@@ -11,6 +13,8 @@ import { Badge } from "../components/badge";
 import { ImageWrapper } from "../components/image-wrapper";
 import { Divider } from "../components/divider";
 import { CTA } from "../components/cta";
+import { motion } from "framer-motion";
+import { useViewportReveal } from "../animations/viewport";
 
 // Mock data imports
 import { solutions } from "../mock/solutions";
@@ -19,7 +23,7 @@ import { getFeaturedTestimonials } from "../mock/testimonials";
 import { getFeaturedArticle } from "../mock/articles";
 
 // Mapping icons by name
-const iconMap: Record<string, React.ComponentType<any>> = {
+const iconMap: Record<string, LucideIcon> = {
   Globe,
   Monitor,
   Layers,
@@ -31,6 +35,7 @@ export default function Home() {
   const featuredProjects = getFeaturedProjects();
   const featuredTestimonials = getFeaturedTestimonials();
   const featuredArticle = getFeaturedArticle();
+  const reveal = useViewportReveal();
 
   return (
     <GlobalLayout>
@@ -114,44 +119,59 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div
+            initial={reveal.containerMotion.initial}
+            whileInView={reveal.containerMotion.whileInView}
+            viewport={reveal.containerMotion.viewport}
+            variants={reveal.containerMotion.variants}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
             {solutions.slice(0, 3).map((solution) => {
               const Icon = iconMap[solution.icon] || Globe;
               return (
-                <Card key={solution.id} hoverEffect className="flex flex-col justify-between min-h-[300px]">
-                  <div>
-                    <div className="w-10 h-10 rounded-sm bg-[#111111]/5 flex items-center justify-center mb-6">
-                      <Icon className="w-5 h-5 text-[#111111] stroke-[1.5]" />
+                <motion.div
+                  key={solution.id}
+                  initial={reveal.itemMotion.initial}
+                  whileInView={reveal.itemMotion.whileInView}
+                  viewport={reveal.itemMotion.viewport}
+                  variants={reveal.itemMotion.variants}
+                  className="w-full h-full flex flex-col"
+                >
+                  <Card hoverEffect className="flex flex-col justify-between min-h-[300px] w-full h-full">
+                    <div>
+                      <div className="w-10 h-10 rounded-sm bg-[#111111]/5 flex items-center justify-center mb-6">
+                        <Icon className="w-5 h-5 text-[#111111] stroke-[1.5]" />
+                      </div>
+                      <h3 className="font-heading text-xl font-semibold text-[#111111] mb-3">
+                        {solution.title}
+                      </h3>
+                      <p className="font-sans text-[#5F5F5F] text-sm leading-relaxed mb-6">
+                        {solution.description}
+                      </p>
                     </div>
-                    <h3 className="font-heading text-xl font-semibold text-[#111111] mb-3">
-                      {solution.title}
-                    </h3>
-                    <p className="font-sans text-[#5F5F5F] text-sm leading-relaxed mb-6">
-                      {solution.description}
-                    </p>
-                  </div>
-                  <div className="pt-4 border-t border-[#E8E8E8]/60">
-                    <p className="font-sans text-xs uppercase tracking-wider text-[#5F5F5F] mb-3">
-                      Core services
-                    </p>
-                    <ul className="space-y-1.5 mb-6">
-                      {solution.services.slice(0, 3).map((service, idx) => (
-                        <li key={idx} className="font-sans text-xs text-[#111111] flex items-center gap-2">
-                          <Check className="w-3.5 h-3.5 text-[#5F5F5F]" />
-                          <span>{service}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Link href={`/solutions#${solution.id}`}>
-                      <Button variant="text" size="sm">
-                        {solution.ctaText}
-                      </Button>
-                    </Link>
-                  </div>
-                </Card>
+                    <div className="pt-4 border-t border-[#E8E8E8]/60 mt-auto">
+                      <p className="font-sans text-xs uppercase tracking-wider text-[#5F5F5F] mb-3">
+                        Core services
+                      </p>
+                      <ul className="space-y-1.5 mb-6">
+                        {solution.services.slice(0, 3).map((service, idx) => (
+                          <li key={idx} className="font-sans text-xs text-[#111111] flex items-center gap-2">
+                            <Check className="w-3.5 h-3.5 text-[#5F5F5F]" />
+                            <span>{service}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <Link href={`/solutions#${solution.id}`}>
+                        <Button variant="text" size="sm">
+                          {solution.ctaText}
+                        </Button>
+                      </Link>
+                    </div>
+                  </Card>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </Container>
       </SectionWrapper>
 
@@ -189,7 +209,7 @@ export default function Home() {
                         fill
                         sizes="(max-width: 1024px) 100vw, 50vw"
                         containerClassName="w-full h-full"
-                        className="transition-transform duration-500 group-hover:scale-[1.01]"
+                        className="transition-transform duration-500 group-hover:scale-[1.02]"
                       />
                     </div>
                   </Link>
@@ -255,7 +275,13 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <motion.div
+            initial={reveal.containerMotion.initial}
+            whileInView={reveal.containerMotion.whileInView}
+            viewport={reveal.containerMotion.viewport}
+            variants={reveal.containerMotion.variants}
+            className="grid grid-cols-1 md:grid-cols-4 gap-8"
+          >
             {[
               {
                 step: "01",
@@ -278,19 +304,45 @@ export default function Home() {
                 description: "We monitor production usage, gather client and team feedback, and refine workflows to maximize scale.",
               },
             ].map((p, idx) => (
-              <div key={idx} className="flex flex-col border-t border-[#E8E8E8] pt-6 gap-4">
-                <span className="font-heading text-5xl md:text-6xl font-semibold text-[#111111]/20 block tracking-tight leading-none select-none">
+              <motion.div
+                key={idx}
+                initial={reveal.itemMotion.initial}
+                whileInView={reveal.itemMotion.whileInView}
+                viewport={reveal.itemMotion.viewport}
+                variants={reveal.itemMotion.variants}
+                className="flex flex-col border-t border-[#E8E8E8] pt-6 gap-4"
+              >
+                <motion.span
+                  initial={reveal.motionEnabled ? "hidden" : false}
+                  whileInView={reveal.motionEnabled ? "visible" : undefined}
+                  viewport={reveal.itemMotion.viewport}
+                  variants={
+                    reveal.motionEnabled
+                      ? {
+                          hidden: { scale: 1 },
+                          visible: {
+                            scale: [1, 1.06, 1],
+                            transition: {
+                              duration: reveal.breakpoint === "tablet" ? 0.42 : 0.5,
+                              ease: [0.22, 1, 0.36, 1],
+                            },
+                          },
+                        }
+                      : undefined
+                  }
+                  className="origin-left font-heading text-5xl md:text-6xl font-semibold text-[#111111]/20 block tracking-tight leading-none select-none"
+                >
                   {p.step}
-                </span>
+                </motion.span>
                 <h4 className="font-heading text-lg font-semibold text-[#111111]">
                   {p.title}
                 </h4>
                 <p className="font-sans text-sm text-[#5F5F5F] leading-relaxed">
                   {p.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </Container>
       </SectionWrapper>
 
@@ -355,34 +407,49 @@ export default function Home() {
             </SectionHeading>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div
+            initial={reveal.containerMotion.initial}
+            whileInView={reveal.containerMotion.whileInView}
+            viewport={reveal.containerMotion.viewport}
+            variants={reveal.containerMotion.variants}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
             {featuredTestimonials.map((t) => (
-              <Card key={t.id} className="flex flex-col justify-between p-8 bg-[#FAF9F6] min-h-[250px]">
-                <blockquote className="font-sans text-base text-[#111111] italic leading-relaxed mb-6">
-                  &ldquo;{t.review}&rdquo;
-                </blockquote>
-                <div className="flex items-center gap-4 border-t border-[#E8E8E8]/60 pt-4">
-                  <div className="w-10 h-10 rounded-full overflow-hidden relative">
-                    <ImageWrapper
-                      src={t.photo}
-                      alt={t.clientName}
-                      fill
-                      sizes="40px"
-                      containerClassName="w-full h-full border-none"
-                    />
+              <motion.div
+                key={t.id}
+                initial={reveal.itemMotion.initial}
+                whileInView={reveal.itemMotion.whileInView}
+                viewport={reveal.itemMotion.viewport}
+                variants={reveal.itemMotion.variants}
+                className="w-full h-full flex flex-col"
+              >
+                <Card className="flex flex-col justify-between p-8 bg-[#FAF9F6] min-h-[250px] w-full h-full">
+                  <blockquote className="font-sans text-base text-[#111111] italic leading-relaxed mb-6">
+                    &ldquo;{t.review}&rdquo;
+                  </blockquote>
+                  <div className="flex items-center gap-4 border-t border-[#E8E8E8]/60 pt-4 mt-auto">
+                    <div className="w-10 h-10 rounded-full overflow-hidden relative">
+                      <ImageWrapper
+                        src={t.photo}
+                        alt={t.clientName}
+                        fill
+                        sizes="40px"
+                        containerClassName="w-full h-full border-none"
+                      />
+                    </div>
+                    <div>
+                      <cite className="font-sans text-sm font-semibold text-[#111111] not-italic block">
+                        {t.clientName}
+                      </cite>
+                      <span className="font-sans text-xs text-[#5F5F5F] block">
+                        {t.clientRole}, {t.company}
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <cite className="font-sans text-sm font-semibold text-[#111111] not-italic block">
-                      {t.clientName}
-                    </cite>
-                    <span className="font-sans text-xs text-[#5F5F5F] block">
-                      {t.clientRole}, {t.company}
-                    </span>
-                  </div>
-                </div>
-              </Card>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </Container>
       </SectionWrapper>
 

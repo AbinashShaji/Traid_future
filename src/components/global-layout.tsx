@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Navigation } from "../components/navigation";
 import { Footer } from "../components/footer";
+import { PageTransition } from "./page-transition";
 import { cn } from "../utils/cn";
 
 interface GlobalLayoutProps {
@@ -30,7 +31,7 @@ export const GlobalLayout: React.FC<GlobalLayoutProps> = ({
       {/* Main content — offset per device nav */}
       <main
         className={cn(
-          "flex-1 w-full",
+          "flex-1 w-full flex flex-col",
           // Desktop: the fixed header now sits visually on top of the hero
           "lg:pt-0",
           // Tablet: offset left nav rail (~80px wide)
@@ -40,7 +41,7 @@ export const GlobalLayout: React.FC<GlobalLayoutProps> = ({
           className
         )}
       >
-        {children}
+        <PageTransition>{children}</PageTransition>
       </main>
 
       <Footer />

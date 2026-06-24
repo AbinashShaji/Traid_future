@@ -7,8 +7,6 @@ import { SectionWrapper } from "../../../components/section-wrapper";
 import { Container } from "../../../components/container";
 import { SectionHeading } from "../../../components/section-heading";
 import { Button } from "../../../components/button";
-import { Card } from "../../../components/card";
-import { Divider } from "../../../components/divider";
 import { ImageWrapper } from "../../../components/image-wrapper";
 import { CTA } from "../../../components/cta";
 
